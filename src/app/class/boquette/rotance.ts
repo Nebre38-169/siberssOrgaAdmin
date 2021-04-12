@@ -25,7 +25,7 @@ export class Rotance extends Base{
         this.lieu = lieu;
         this.info = info;
         this.date = date;
-        this.commencer = (commencer==='O');
-        this.fini = (fini==='O');
+        this.commencer = (commencer==='Y');
+        this.fini = (fini==='Y');
     }
 }

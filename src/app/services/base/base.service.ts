@@ -113,6 +113,18 @@ export abstract class BaseService<T extends Base> {
     )
   }
 
+  public searchOn(id : number) : T{
+    let i = 0;
+    while(i<this.objectList.length && id!=this.objectList[i].getId()){
+      i++;
+    }
+    if(i<this.objectList.length){
+      return this.objectList[i];
+    } else {
+      return null;
+    }
+  }
+
   protected update(){
     this.objectListObs.next(this.objectList);
   }

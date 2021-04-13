@@ -12,7 +12,7 @@ import { AuthService } from 'src/app/services/other/auth.service';
 })
 export class BoquetteCreateComponent implements OnInit {
 
-  newBoquetteForm : FormGroup
+  newBoquetteForm : FormGroup;
 
   constructor(private formBuilder : FormBuilder,
     private boquette : BoquetteService,

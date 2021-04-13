@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { ConnexionModule } from './connexion/connexion.module';
 
 const routes: Routes = [
   {

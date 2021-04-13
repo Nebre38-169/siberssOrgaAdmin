@@ -30,7 +30,7 @@ export class BoquetteService extends BaseService<Boquette> {
     return {
       name : obj.name,
       respo : obj.respo,
-      description : obj.description,
+      description : obj.description.normalize(),
       role : obj.role
     }
   }

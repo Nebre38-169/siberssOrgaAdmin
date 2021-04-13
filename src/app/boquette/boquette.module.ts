@@ -6,6 +6,7 @@ import { BoquetteListComponent } from './boquette-list/boquette-list.component';
 import { BoquetteCreateComponent } from './boquette-create/boquette-create.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BoquetteRoutingModule } from './boquette-routing';
+import { BoquetteEditComponent } from './boquette-edit/boquette-edit.component';
 
 
 
@@ -14,7 +15,8 @@ import { BoquetteRoutingModule } from './boquette-routing';
     BoquetteSingleComponent, 
     BoquetteSinglePageComponent, 
     BoquetteListComponent, 
-    BoquetteCreateComponent
+    BoquetteCreateComponent, 
+    BoquetteEditComponent
   ],
   imports: [
     CommonModule,

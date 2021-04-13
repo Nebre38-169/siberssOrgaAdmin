@@ -1,0 +1,14 @@
+<div>
+    <h1>Connexion</h1>
+    <form [formGroup]="connexionForm" (ngSubmit)="onSubmitForm()">
+        <div>
+            <label for="boquette">Boquette</label>
+            <input type="text" id="boquette" formControlName="boquette">
+        </div>
+        <div>
+            <label for="password">Mot de passe</label>
+            <input type="password" id="password" formControlName="password">
+        </div>
+        <button type="submit">Connexion</button>
+    </form>
+</div>

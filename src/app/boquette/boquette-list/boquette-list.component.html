@@ -1,0 +1,9 @@
+<div>
+    <h1>Liste des boquettes</h1>
+</div>
+
+<div>
+    <ol>
+        <app-boquette-single *ngFor="let boq of boquetteList" [boquette]="boq"></app-boquette-single>
+    </ol>
+</div>

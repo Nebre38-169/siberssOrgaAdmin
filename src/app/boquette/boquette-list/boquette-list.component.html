@@ -1,9 +1,13 @@
-<div>
-    <h1>Liste des boquettes</h1>
+<div class="row justify-content-center">
+    <div class="col-sm-10 bg-light rounded-3 p-4">
+        <h1>Liste des boquettes</h1>
+    </div>
+    
+    <div class="col-sm-10 bg-light rounded-3 p-5 mt-1">
+        <a class="btn btn-primary" routerLink="/boquette/create">Nouvelle boquette</a>
+        <ul class="list-group list-group-flush mt-3 ">
+            <app-boquette-single *ngFor="let boq of boquetteList" [boquette]="boq"></app-boquette-single>
+        </ul>
+    </div>
 </div>
 
-<div>
-    <ol>
-        <app-boquette-single *ngFor="let boq of boquetteList" [boquette]="boq"></app-boquette-single>
-    </ol>
-</div>

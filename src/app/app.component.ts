@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Router } from '@angular/router';
 import { AuthService } from './services/other/auth.service';
 
 @Component({
@@ -15,9 +15,9 @@ export class AppComponent implements OnInit {
 
   }
   ngOnInit(): void {
-    if(!this.auth.isLogged()){
+    /* if(!this.auth.isLogged()){
       this.router.navigate(['auth','login']);
-    }
+    } */
   }
 
 }

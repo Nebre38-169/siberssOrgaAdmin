@@ -1,1 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
+@import './styles/bootstrap-5.0.0-beta3-dist/css/bootstrap.min.css';
+
+.cs-bg-light{
+    background-color: #e4e4e4;
+}

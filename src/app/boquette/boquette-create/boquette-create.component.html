@@ -1,1 +1,45 @@
-<p>boquette-create works!</p>
+<div class="row justify-content-center">
+    <div class="col-sm-10 bg-light rounded-3 p-4">
+        <h1>Ajouter une boquette</h1>
+    </div>
+
+    <div class="col-sm-10 bg-light rounded-3 p-5 mt-2">
+        <form [formGroup]="newBoquetteForm" (ngSubmit)="onSubmitForm()">
+            <div class="row mb-3">
+                <div class="input-group col"> <!--Name field-->
+                    <span class="input-group-text" for="name">Nom</span>
+                    <input class="form-control" type="text" id="name" formControlName="name">
+                </div>
+                <div class="input-group col"> <!--role field-->
+                    <span class="input-group-text" for="role">Rôle</span>
+                    <select class="form-select" id="role" formControlName="role">
+                        <option value="boquette">boquette</option>
+                        <option value="admin">admin</option>
+                    </select>
+                </div>
+            </div>
+            <div class="row mb-3">
+                <div class="input-group col"> <!--password field-->
+                    <span class="input-group-text" for="password">Mot de passe</span>
+                    <input class="form-control" type="password" id="password" formControlName="password">
+                </div>
+                <div class="input-group col"> <!--password confirm field-->
+                    <span class="input-group-text" for="passwordConfirm">Confirmer le mot de passe</span>
+                    <input  class="form-control" type="password" id="passwordConfirm" formControlName="passwordConfirm">
+                </div>
+            </div>
+            <div class="mb-3"> <!--respo field-->
+                <label class="form-label" for="respo">Respo</label>
+                <textarea class="form-control" id="respo" formControlName="respo" rows="4" cols="50">
+                </textarea>
+            </div>
+            <div class="mb-3"> <!--description field-->
+                <label class="form-label" for="description">Description</label>
+                <textarea class="form-control" id="description" formControlName="description" rows="4" cols="50">
+                </textarea>
+            </div>
+            <button class="btn btn-primary"type="submit">Créez une boquette</button>
+            <a class="btn btn-secondary ms-1" routerLink="/boquette/list">Retour</a>
+        </form>
+    </div>
+</div>

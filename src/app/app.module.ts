@@ -8,8 +8,6 @@ import { BoquetteService } from './services/boquette/boquette.service';
 import { ChannelService } from './services/channel/channel.service';
 import { RotanceService } from './services/boquette/rotance.service';
 import { PostsService } from './services/channel/posts.service';
-import { BaseService } from './services/base/base.service';
-import { BaseWithDependanceService } from './services/base/base-with-dependance.service';
 import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({

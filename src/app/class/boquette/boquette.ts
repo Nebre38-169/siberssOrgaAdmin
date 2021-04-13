@@ -21,4 +21,12 @@ export class Boquette extends Base{
         this.description = description;
         this.role = role;
     }
+
+    public setCreationDate(newDate : Date){
+        this.creationDate = newDate;
+    }
+
+    public setUpdateDate(newDate : Date){
+        this.updateDate = newDate;
+    }
 }

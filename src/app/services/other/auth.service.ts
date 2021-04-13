@@ -41,6 +41,28 @@ export class AuthService {
     )
   }
 
+  public sigin(boquette : Boquette, password : string) : Observable<Boquette | Error>{
+    return this.http.post<ServeurResponse>(
+      environment.baseUrl.base+environment.baseUrl.auth+`/signin`,
+      {
+        'name' : boquette.name,
+        'password' : this.getCryptedPass(password),
+        'respo' : boquette.respo,
+        'description' : boquette.description,
+        'role' : boquette.role
+      }
+    ).pipe(
+      map(value =>{
+        if(value.status==='success'){
+          boquette.setId(value.result);
+          return boquette;
+        } else {
+          return new Error(value.result);
+        }
+      })
+    )
+  }
+
   public getUser() : Boquette {
     return this.loggedAdmin;
   }

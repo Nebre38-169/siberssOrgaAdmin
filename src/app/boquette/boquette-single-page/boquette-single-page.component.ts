@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Boquette } from 'src/app/class/boquette/boquette';
+import { Rotance } from 'src/app/class/boquette/rotance';
 import { BoquetteService } from 'src/app/services/boquette/boquette.service';
+import { RotanceService } from 'src/app/services/boquette/rotance.service';
 import { ModalService } from 'src/app/_modal';
 
 @Component({
@@ -12,9 +14,11 @@ import { ModalService } from 'src/app/_modal';
 export class BoquetteSinglePageComponent implements OnInit {
 
   public singleBoquette : Boquette;
+  public rotanceList : Rotance[];
 
   constructor(
     private boquette : BoquetteService,
+    private rotance : RotanceService,
     private route : ActivatedRoute,
     private router : Router,
     private modal : ModalService
@@ -28,6 +32,14 @@ export class BoquetteSinglePageComponent implements OnInit {
           console.log(value); 
         } else {
           this.singleBoquette = value;
+          this.rotance.getByDependance(boquetteId,'boquette')
+          .subscribe(value =>{
+            if(value instanceof Error){
+              console.log(value);
+            } else {
+              this.rotanceList = value;
+            }
+          })
         }
       }
     )

@@ -8,6 +8,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BoquetteRoutingModule } from './boquette-routing';
 import { BoquetteEditComponent } from './boquette-edit/boquette-edit.component';
 import { ModalModule } from '../_modal';
+import { RotanceModule } from '../rotance/rotance.module';
 
 
 
@@ -24,7 +25,8 @@ import { ModalModule } from '../_modal';
     FormsModule,
     ModalModule,
     ReactiveFormsModule,
-    BoquetteRoutingModule
+    BoquetteRoutingModule,
+    RotanceModule
   ]
 })
 export class BoquetteModule { }

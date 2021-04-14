@@ -24,6 +24,24 @@
             <p>{{ singleBoquette.description }}</p>
         </div>
         <hr>
+        <div>
+            <div class="container mx-0 px-0">
+                <div class="row">
+                    <div class="col-md-6">
+                        <h3>Rotance</h3>
+                    </div>
+                    <div class="col-md-6 d-flex justify-content-end">
+                        <a class="btn btn-primary" routerLink="/rotance/create/{{ singleBoquette.getId() }}">Nouvelle rotance</a>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-1">
+                <ul *ngIf="rotanceList && rotanceList.length>0">
+                    <app-rotance-single *ngFor="let r of rotanceList" [rotance]="r"></app-rotance-single>
+                </ul>
+                <p *ngIf="!rotanceList || rotanceList.length<1">Il n'y a pas de rotance pour l'instant</p>
+            </div>
+        </div>
         <div class="mt-1 d-flex justify-content-between">
             <div>
                 <a class="btn btn-primary" routerLink="/boquette/edit/{{ singleBoquette.getId() }}">Editer</a>

@@ -35,3 +35,16 @@
         </div>
     </div>
 </div>
+
+<jw-modal class="" id="confirmation">
+    <h1>Confirmation</h1>
+    <p>Etes vous sur de vouloir supprimer la boquette {{ singleBoquette.name }}</p>
+    <div class="container">
+        <div class="row d-flex justify-content-end">
+            <div class="col-sm-6 d-flex justify-content-end">
+                <button class="btn btn-primary" (click)="closeModal('confirmation')">Retour</button>
+                <button class="btn btn-danger ms-1" (click)="confirm()">OK</button>
+            </div>
+        </div>
+    </div>
+</jw-modal>

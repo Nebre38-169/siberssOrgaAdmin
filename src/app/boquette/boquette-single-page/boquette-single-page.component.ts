@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Boquette } from 'src/app/class/boquette/boquette';
 import { BoquetteService } from 'src/app/services/boquette/boquette.service';
+import { ModalService } from 'src/app/_modal';
 
 @Component({
   selector: 'app-boquette-single-page',
@@ -14,7 +15,9 @@ export class BoquetteSinglePageComponent implements OnInit {
 
   constructor(
     private boquette : BoquetteService,
-    private route : ActivatedRoute
+    private route : ActivatedRoute,
+    private router : Router,
+    private modal : ModalService
   ) { }
 
   ngOnInit(): void {
@@ -31,7 +34,24 @@ export class BoquetteSinglePageComponent implements OnInit {
   }
 
   onDelete(){
-    //TODO : add a delete method with modal confirmation
+    this.modal.open('confirmation');
   }
+
+  closeModal(id :string){
+    this.modal.close('confirmation');
+  }
+
+  confirm(){
+    this.boquette.delete(this.singleBoquette.getId())
+    .subscribe(value =>{
+      if(value instanceof Error){
+        console.log(value);
+      } else {
+        this.modal.close('confirmation');
+        this.router.navigate(['boquette','list']);
+      }
+    })
+  }
+
 
 }

@@ -9,6 +9,7 @@ import { ChannelService } from './services/channel/channel.service';
 import { RotanceService } from './services/boquette/rotance.service';
 import { PostsService } from './services/channel/posts.service';
 import { HttpClientModule } from '@angular/common/http';
+import { ModalModule } from './_modal/modal.module';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import { HttpClientModule } from '@angular/common/http';
   imports: [
     BrowserModule,
     HttpClientModule,
+    ModalModule,
     AppRoutingModule
   ],
   providers: [

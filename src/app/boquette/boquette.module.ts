@@ -7,6 +7,7 @@ import { BoquetteCreateComponent } from './boquette-create/boquette-create.compo
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BoquetteRoutingModule } from './boquette-routing';
 import { BoquetteEditComponent } from './boquette-edit/boquette-edit.component';
+import { ModalModule } from '../_modal';
 
 
 
@@ -21,6 +22,7 @@ import { BoquetteEditComponent } from './boquette-edit/boquette-edit.component';
   imports: [
     CommonModule,
     FormsModule,
+    ModalModule,
     ReactiveFormsModule,
     BoquetteRoutingModule
   ]

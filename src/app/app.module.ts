@@ -17,8 +17,8 @@ import { ModalModule } from './_modal/modal.module';
   ],
   imports: [
     BrowserModule,
-    HttpClientModule,
     ModalModule,
+    HttpClientModule,
     AppRoutingModule
   ],
   providers: [

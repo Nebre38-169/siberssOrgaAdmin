@@ -14,7 +14,7 @@ const routes: Routes = [
     component : RotanceSinglePageComponent
   },
   {
-    path : 'edit/:id',
+    path : 'edit/:boquette/:id',
     component : RotanceEditComponent
   }
 ];

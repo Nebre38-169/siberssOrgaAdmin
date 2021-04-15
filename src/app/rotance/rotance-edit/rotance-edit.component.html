@@ -1,1 +1,38 @@
-<p>rotance-edit works!</p>
+
+<div class="row justify-content-center">
+    <div class="col-sm-10 bg-light rounded-3 p-4">
+        <h1>Modification de la rotance du {{ singleRotance.date | date }} pour la {{ singleRotance.boquette.name }}</h1>
+    </div>
+
+    <div class="col-sm-10 bg-light rounded-3 p-5 mt-2">
+        <form [formGroup]="editRotanceForm" (ngSubmit)="onSubmitForm()">
+            <div class="row mb-3">
+                <div class="input-group col"> <!--Lieu field-->
+                    <span class="input-group-text" for="lieu">Lieu</span>
+                    <input class="form-control" type="text" id="lieu" formControlName="lieu">
+                </div>
+                <div class="input-group col"> <!--Date field-->
+                    <span class="input-group-text" for="date">Date</span>
+                    <input class="form-control" type="date" id="date" formControlName="date">
+                </div>
+                <div class="input-group col"> <!--Time field-->
+                    <span class="input-group-text" for="time">Heure</span>
+                    <input class="form-control" type="time" id="time" formControlName="time">
+                </div>
+            </div>
+            <div class="mb-3"> <!--info field-->
+                <label class="form-label" for="info">Information</label>
+                <textarea class="form-control" id="info" formControlName="info" rows="4" cols="50">
+                </textarea>
+            </div>
+            <div class="form-check mb-3"> <!-- Commencer checkbox -->
+                <input class="form-check-input" type="checkbox" value="" id="commencer" formControlName="commencer">
+                <label class="form-check-label" for="commencer">
+                  Commencer
+                </label>
+            </div>
+            <button class="btn btn-primary" type="submit">Modifier</button>
+            <a class="btn btn-secondary ms-1" routerLink="/rotance/{{ singleRotance.getId() }}">Retour</a>
+        </form>
+    </div>
+</div>

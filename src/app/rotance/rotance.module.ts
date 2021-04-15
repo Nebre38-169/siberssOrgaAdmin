@@ -6,6 +6,7 @@ import { RotanceCreateComponent } from './rotance-create/rotance-create.componen
 import { RotanceEditComponent } from './rotance-edit/rotance-edit.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RotanceRoutingModule } from './rotance-routing';
+import { ModalModule } from '../_modal';
 
 
 
@@ -19,6 +20,7 @@ import { RotanceRoutingModule } from './rotance-routing';
   imports: [
     CommonModule,
     FormsModule,
+    ModalModule,
     ReactiveFormsModule,
     RotanceRoutingModule
   ],

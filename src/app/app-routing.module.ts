@@ -13,6 +13,10 @@ const routes: Routes = [
   {
     path : 'rotance',
     loadChildren : () => import('./rotance/rotance.module').then(m => m.RotanceModule)
+  },
+  {
+    path : 'channel',
+    loadChildren : () => import('./channel/channel.module').then(m => m.ChannelModule)
   }
 ];
 

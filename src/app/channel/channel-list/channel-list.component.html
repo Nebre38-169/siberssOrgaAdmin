@@ -1,0 +1,12 @@
+<div class="row justify-content-center">
+    <div class="col-sm-10 bg-light rounded-3 p-4">
+        <h1>Liste des Channels</h1>
+    </div>
+    
+    <div class="col-sm-10 bg-light rounded-3 p-5 mt-1">
+        <ul class="list-group list-group-flush border rounded-3">
+            <app-channel-single *ngFor="let boq of channelList" [singleChannel]="boq"></app-channel-single>
+        </ul>
+        <a class="btn btn-primary mt-1" routerLink="/channel/create">Nouveau channel</a>
+    </div>
+</div>

@@ -21,7 +21,7 @@ export class ChannelService extends BaseService<Channel>{
       new Date(info.creationDate),
       new Date(info.updateDate),
       info.nom,
-      info.boquette
+      info.boquettes
     )
   }
   public objectToJsonConvert(obj: Channel) {

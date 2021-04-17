@@ -8,6 +8,7 @@ import { ChannelEditComponent } from './channel-edit/channel-edit.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ModalModule } from '../_modal';
 import { ChannelRoutingModule } from './channel-routing';
+import { PostsModule } from '../posts/posts.module';
 
 
 
@@ -23,6 +24,7 @@ import { ChannelRoutingModule } from './channel-routing';
     FormsModule,
     ReactiveFormsModule,
     ModalModule,
+    PostsModule,
     ChannelRoutingModule
   ]
 })

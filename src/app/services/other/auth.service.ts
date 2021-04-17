@@ -79,6 +79,14 @@ export class AuthService {
     return this.loggedAdmin!=undefined;
   }
 
+  public isAdmin() : boolean {
+    if(this.loggedAdmin){
+      return this.loggedAdmin.role==='admin';
+    } else {
+      return false;
+    }
+  }
+
 
   public updateUser(){
     this.admin.next(this.loggedAdmin);

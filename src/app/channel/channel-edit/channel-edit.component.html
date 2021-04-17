@@ -1,1 +1,29 @@
-<p>channel-edit works!</p>
+<div class="row justify-content-center" *ngIf="editedChannel">
+    <div class="col-sm-10 bg-light rounded-3 p-4">
+        <h1>Modifier le channel {{ editedChannel.nom }}</h1>
+    </div>
+    <div class="col-sm-10 bg-light rounded-3 p-5 mt-2" *ngIf="editChannelForm">
+        <form [formGroup]="editChannelForm" (ngSubmit)="onSubmitForm()">
+            <div class="input-group mb-3"> <!-- name field -->
+                <span class="input-group-text" for="name">Nom</span>
+                <input class="form-control" type="text" id="name" formControlName="name">
+            </div>
+            <hr>
+            <div>
+                <h3>Boquettes :</h3>
+                <div class="input-group mb-3" formArrayName="boquettes">
+                    <ul class="list-group">
+                        <li class="list-group-item" *ngFor="let bControl of getBoquette().controls; let i = index ">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="{{boquetteList[i].name}}" [formControlName]="i">
+                                <label class="form-check-label" for="{{boquetteList[i].name}}">{{ boquetteList[i].name }}</label>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <button class="btn btn-primary" type="submit">Modifier le channel</button>
+            <a class="btn btn-secondary ms-1" routerLink="/channel/list">Retour</a>
+        </form>
+    </div>
+</div>

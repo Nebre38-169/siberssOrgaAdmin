@@ -61,7 +61,6 @@ export class ChannelCreateComponent implements OnInit,OnDestroy {
 
   onSubmitForm(){
     const formValue = this.newChannelForm.value;
-    console.log(formValue);
     let boquetteArray = "";
     for(let i=0;i<formValue['boquettes'].length;i++){
       if(formValue['boquettes'][i]){

@@ -9,6 +9,7 @@ import { BoquetteRoutingModule } from './boquette-routing';
 import { BoquetteEditComponent } from './boquette-edit/boquette-edit.component';
 import { ModalModule } from '../_modal';
 import { RotanceModule } from '../rotance/rotance.module';
+import { BoquetteEditPasswordComponent } from './boquette-edit-password/boquette-edit-password.component';
 
 
 
@@ -18,7 +19,7 @@ import { RotanceModule } from '../rotance/rotance.module';
     BoquetteSinglePageComponent, 
     BoquetteListComponent, 
     BoquetteCreateComponent, 
-    BoquetteEditComponent
+    BoquetteEditComponent, BoquetteEditPasswordComponent
   ],
   imports: [
     CommonModule,

@@ -17,6 +17,10 @@ const routes: Routes = [
   {
     path : 'channel',
     loadChildren : () => import('./channel/channel.module').then(m => m.ChannelModule)
+  },
+  {
+    path : '**',
+    redirectTo : 'boquette/list'
   }
 ];
 

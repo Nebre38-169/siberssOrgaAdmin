@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { ErrorHandler, Injectable } from '@angular/core';
 import { Observable, Subject } from 'rxjs';
 import { Boquette } from 'src/app/class/boquette/boquette';
 import { ServeurResponse } from 'src/app/class/serveur-response/serveur-response';
@@ -41,6 +41,22 @@ export class AuthService {
     )
   }
 
+  public logout() : Observable<boolean | Error>{
+    return this.http.get<ServeurResponse>(
+      environment.baseUrl.base+environment.baseUrl.auth+`/logout/${this.loggedAdmin.getId()}`
+    ).pipe(
+      map(value =>{
+        if(value.status==='success'){
+          this.loggedAdmin = null;
+          this.updateUser();
+          return true;
+        } else {
+          return new Error(value.result);
+        }
+      })
+    )
+  }
+
   public sigin(boquette : Boquette, password : string) : Observable<Boquette | Error>{
     return this.http.post<ServeurResponse>(
       environment.baseUrl.base+environment.baseUrl.auth+`/signin`,
@@ -56,6 +72,22 @@ export class AuthService {
         if(value.status==='success'){
           boquette.setId(value.result);
           return boquette;
+        } else {
+          return new Error(value.result);
+        }
+      })
+    )
+  }
+
+  public updatePassword(boquette : Boquette,newPassword) : Observable<boolean | Error>{
+    let cryptedPass = this.getCryptedPass(newPassword);
+    return this.http.post<ServeurResponse>(
+      environment.baseUrl.base+environment.baseUrl.auth+`/editpassword/${boquette.getId()}`,
+      {newPassword : cryptedPass}
+    ).pipe(
+      map(value =>{
+        if(value.status==='success'){
+          return true;
         } else {
           return new Error(value.result);
         }

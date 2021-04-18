@@ -45,6 +45,7 @@
         <div class="mt-1 d-flex justify-content-between">
             <div>
                 <a class="btn btn-primary" routerLink="/boquette/edit/{{ singleBoquette.getId() }}">Editer</a>
+                <a class="btn btn-info ms-1" routerLink="/boquette/password/{{ singleBoquette.getId() }}">Changer le mot de passe</a>
                 <a class="btn btn-secondary ms-1" routerLink="/boquette/list">Retour</a>
             </div>
             <div>
@@ -54,7 +55,7 @@
     </div>
 </div>
 
-<jw-modal class="" id="confirmation">
+<jw-modal class="" id="confirmation" *ngIf="singleBoquette">
     <h1>Confirmation</h1>
     <p>Etes vous sur de vouloir supprimer la boquette {{ singleBoquette.name }}</p>
     <div class="container">

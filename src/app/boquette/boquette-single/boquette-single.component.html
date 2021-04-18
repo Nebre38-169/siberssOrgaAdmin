@@ -3,7 +3,13 @@
         <div class="fw-bold">{{ boquette.name }}</div>
         Respo : {{ boquette.respo }}
         <div> <!--Prochaine rotance-->
-            next rotance
+            <div *ngIf="nextRotance">
+                Prochaine rotance : 
+                <ul >
+                    <app-rotance-single [rotance]="nextRotance" ></app-rotance-single>
+                </ul>
+            </div>
+            <p *ngIf="!nextRotance">Pas de rotance prévu pour l'instant !</p>
         </div>
     </div>
 </li>

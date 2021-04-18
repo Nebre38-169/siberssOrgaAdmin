@@ -1,6 +1,10 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
+import { Boquette } from 'src/app/class/boquette/boquette';
 import { Rotance } from 'src/app/class/boquette/rotance';
+import { ServeurResponse } from 'src/app/class/serveur-response/serveur-response';
 import { environment } from 'src/environments/environment';
 import { BaseWithDependanceService } from '../base/base-with-dependance.service';
 import { BaseService } from '../base/base.service';
@@ -40,5 +44,24 @@ export class RotanceService extends BaseWithDependanceService<Rotance> {
       commencer : (obj.commencer) ? 'Y' : 'N', 
       fini : (obj.fini) ? 'Y' : 'N'
     }
+  }
+
+  public getNextRotance(b : Boquette) : Observable<Rotance | Error>{
+    return this.http.get<ServeurResponse>(
+      this.baseUrl+`/next/${b.getId()}`
+    ).pipe(
+      map(value =>{
+        console.log(value);
+        if(value.status==='success'){
+          if(value.result.length>0){
+            return this.jsonToObjectConvert(value.result[0]);
+          } else {
+            return null;
+          }
+        } else {
+          return new Error(value.result);
+        }
+      })
+    )
   }
 }

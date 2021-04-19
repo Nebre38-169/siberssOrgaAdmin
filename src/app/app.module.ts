@@ -10,6 +10,8 @@ import { RotanceService } from './services/boquette/rotance.service';
 import { PostsService } from './services/channel/posts.service';
 import { HttpClientModule } from '@angular/common/http';
 import { ModalModule } from './_modal/modal.module';
+import { DateFrPipe } from './pipe/date-fr.pipe';
+import { PipeModule } from './pipe/pipe.module';
 
 @NgModule({
   declarations: [
@@ -18,6 +20,7 @@ import { ModalModule } from './_modal/modal.module';
   imports: [
     BrowserModule,
     ModalModule,
+    PipeModule.forRoot(),
     HttpClientModule,
     AppRoutingModule
   ],
@@ -27,6 +30,8 @@ import { ModalModule } from './_modal/modal.module';
     ChannelService,
     RotanceService,
     PostsService,
+  ],
+  exports: [
   ],
   bootstrap: [AppComponent]
 })

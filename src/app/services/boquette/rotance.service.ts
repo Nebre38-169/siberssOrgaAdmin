@@ -51,7 +51,6 @@ export class RotanceService extends BaseWithDependanceService<Rotance> {
       this.baseUrl+`/next/${b.getId()}`
     ).pipe(
       map(value =>{
-        console.log(value);
         if(value.status==='success'){
           if(value.result.length>0){
             return this.jsonToObjectConvert(value.result[0]);

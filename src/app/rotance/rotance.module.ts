@@ -7,6 +7,7 @@ import { RotanceEditComponent } from './rotance-edit/rotance-edit.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RotanceRoutingModule } from './rotance-routing';
 import { ModalModule } from '../_modal';
+import { PipeModule } from '../pipe/pipe.module';
 
 
 
@@ -22,7 +23,8 @@ import { ModalModule } from '../_modal';
     FormsModule,
     ModalModule,
     ReactiveFormsModule,
-    RotanceRoutingModule
+    RotanceRoutingModule,
+    PipeModule.forRoot()
   ],
   exports : [
     RotanceSingleComponent

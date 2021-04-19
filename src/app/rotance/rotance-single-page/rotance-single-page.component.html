@@ -1,6 +1,6 @@
 <div class="row justify-content-center" *ngIf="singleRotance">
     <div class="col-sm-10 bg-light rounded-3 p-4">
-        <h1>Rotance du {{ singleRotance.date | date }}</h1>
+        <h1>Rotance du {{ singleRotance.date | dateFr }}</h1>
     </div>
 
     <div class="col-sm-10 bg-light rounded-3 p-4 mt-1">
@@ -10,10 +10,10 @@
                     Lieu : {{ singleRotance.lieu }}
                 </div>
                 <div class="col-sm-4">
-                    Date : {{ singleRotance.date |date }}
+                    Date : {{ singleRotance.date | dateFr }}
                 </div>
                 <div class="col-sm-4">
-                    Heure : {{ singleRotance.date | date}}
+                    Heure : {{ singleRotance.date | dateFr:'hours'}}
                 </div>
             </div>
             <div class="row d-flex justify-content-center">
@@ -41,7 +41,7 @@
 
 
 
-<jw-modal class="" id="confirmation">
+<jw-modal class="" id="confirmation" *ngIf="singleRotance">
     <h1>Confirmation</h1>
     <p>Etes vous sur de vouloir supprimer la rotance du  {{ singleRotance.date | date }}</p>
     <div class="container">

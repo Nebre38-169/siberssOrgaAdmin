@@ -1,8 +1,8 @@
-<li class="list-group-item d-flex justify-content-between align-items-start">
+<a class="list-group-item list-group-item-action" *ngIf="singlePosts">
     <div class="d-flex w-100 justify-content-between">
-        <div class="fw-bold">{{ singlePosts.titre }}</div>
-        <small>{{ singlePosts.getCreationdate() | date }}</small>
+        <h5 class="mb-1">{{ singlePosts.titre }}</h5>
+        <small>{{ singlePosts.getCreationdate() | dateFr }}</small>
     </div>
     <p class="mb-1">{{ singlePosts.message }}</p>
-    <small>{{ singlePosts.auteur }}</small>
-</li>
+    <small>Signé : {{ singlePosts.auteur.name }}</small>
+</a>

@@ -28,9 +28,9 @@
                 </div>
             </div>
             <div class="mt-1">
-                <ul *ngIf="postsList && postsList.length>0">
-                    <app-posts-single *ngFor="let r of postsList" [singlePost]="r"></app-posts-single>
-                </ul>
+                <div class="list-group" *ngIf="postsList && postsList.length>0">
+                    <app-posts-single *ngFor="let r of postsList" [singlePosts]="r"></app-posts-single>
+                </div>
                 <p *ngIf="!postsList || postsList.length<1">Il n'y a pas de message pour l'instant</p>
             </div>
         </div>

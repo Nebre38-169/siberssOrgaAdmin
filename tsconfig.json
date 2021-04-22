@@ -18,6 +18,6 @@
     ]
   },
   "angularCompilerOptions":{
-    "strictTemplaces":true
+    "strictTemplates":true
   }
 }

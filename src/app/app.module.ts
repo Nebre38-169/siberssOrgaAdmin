@@ -12,10 +12,12 @@ import { HttpClientModule } from '@angular/common/http';
 import { ModalModule } from './_modal/modal.module';
 import { DateFrPipe } from './pipe/date-fr.pipe';
 import { PipeModule } from './pipe/pipe.module';
+import { ErrorPageComponent } from './error-page/error-page.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    ErrorPageComponent
   ],
   imports: [
     BrowserModule,

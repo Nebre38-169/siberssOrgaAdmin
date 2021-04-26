@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { ErrorPageComponent } from './error-page/error-page.component';
 
 const routes: Routes = [
   {
@@ -17,6 +18,10 @@ const routes: Routes = [
   {
     path : 'channel',
     loadChildren : () => import('./channel/channel.module').then(m => m.ChannelModule)
+  },
+  {
+    path : 'error',
+    component : ErrorPageComponent
   },
   {
     path : '**',

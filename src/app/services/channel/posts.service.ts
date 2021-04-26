@@ -1,5 +1,6 @@
 import { HttpClient, HttpClientJsonpModule } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 import { Posts } from 'src/app/class/channel/posts';
 import { environment } from 'src/environments/environment';
 import { BaseWithDependanceService } from '../base/base-with-dependance.service';
@@ -13,9 +14,12 @@ export class PostsService extends BaseWithDependanceService<Posts>{
   
   baseUrl = environment.baseUrl.base + environment.baseUrl.posts;
   
-  constructor(protected http: HttpClient,
-    private boquette : BoquetteService) { 
-      super(http);
+  constructor(
+    protected http: HttpClient,
+    private boquette : BoquetteService,
+    protected router: Router
+  ) { 
+      super(http,router);
       boquette.fetch();
     }
 

@@ -8,6 +8,7 @@ import { BoquetteService } from '../boquette/boquette.service';
 import * as CryptoJS from 'crypto-js';
 import  Base64  from 'crypto-js/enc-base64'
 import { map } from 'rxjs/operators';
+import { Header } from 'src/app/class/header/header';
 
 @Injectable({
   providedIn: 'root'
@@ -25,12 +26,14 @@ export class AuthService {
   public login(boquette : string, password : string) : Observable<Boquette | Error>{
     return this.http.post<ServeurResponse>(
       environment.baseUrl.base+environment.baseUrl.auth+`/login`,
-      {'boquette':boquette,'password' : this.getCryptedPass(password)}
+      {'boquette':boquette,'password' : this.getCryptedPass(password)},
+      { headers : Header.getHeader() }
     ).pipe(
       map(value =>{
         if(value.status==='success'){
           this.loggedAdmin = this.boquette.jsonToObjectConvert(value.result.user);
           this.updateUser();
+          localStorage.setItem('boquetteId',String(this.loggedAdmin.getId()));
           localStorage.setItem('access_token',value.result.token);
           this.updateUser();
           return this.loggedAdmin;
@@ -41,9 +44,10 @@ export class AuthService {
     )
   }
 
-  public logout() : Observable<boolean | Error>{
+  public logout(): Observable<boolean | Error>{
     return this.http.get<ServeurResponse>(
-      environment.baseUrl.base+environment.baseUrl.auth+`/logout/${this.loggedAdmin.getId()}`
+      environment.baseUrl.base+environment.baseUrl.auth+`/logout/${this.loggedAdmin.getId()}`,
+      { headers : Header.getHeader() }
     ).pipe(
       map(value =>{
         if(value.status==='success'){
@@ -66,7 +70,8 @@ export class AuthService {
         'respo' : boquette.respo,
         'description' : boquette.description,
         'role' : boquette.role
-      }
+      },
+      { headers : Header.getHeader() }
     ).pipe(
       map(value =>{
         if(value.status==='success'){
@@ -83,7 +88,8 @@ export class AuthService {
     let cryptedPass = this.getCryptedPass(newPassword);
     return this.http.post<ServeurResponse>(
       environment.baseUrl.base+environment.baseUrl.auth+`/editpassword/${boquette.getId()}`,
-      {newPassword : cryptedPass}
+      {newPassword : cryptedPass},
+      { headers : Header.getHeader() }
     ).pipe(
       map(value =>{
         if(value.status==='success'){

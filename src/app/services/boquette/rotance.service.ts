@@ -1,9 +1,11 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { Boquette } from 'src/app/class/boquette/boquette';
 import { Rotance } from 'src/app/class/boquette/rotance';
+import { Header } from 'src/app/class/header/header';
 import { ServeurResponse } from 'src/app/class/serveur-response/serveur-response';
 import { environment } from 'src/environments/environment';
 import { BaseWithDependanceService } from '../base/base-with-dependance.service';
@@ -16,9 +18,12 @@ import { BoquetteService } from './boquette.service';
 export class RotanceService extends BaseWithDependanceService<Rotance> {
   
   baseUrl = environment.baseUrl.base+environment.baseUrl.rotance;
-  constructor(protected http : HttpClient,
-    private boquette : BoquetteService) {
-    super(http);
+  constructor(
+    protected http : HttpClient,
+    private boquette : BoquetteService,
+    protected router: Router
+  ) {
+    super(http,router);
     boquette.fetch();
    }
 
@@ -48,7 +53,10 @@ export class RotanceService extends BaseWithDependanceService<Rotance> {
 
   public getNextRotance(b : Boquette) : Observable<Rotance | Error>{
     return this.http.get<ServeurResponse>(
-      this.baseUrl+`/next/${b.getId()}`
+      this.baseUrl+`/next/${b.getId()}`,
+      { 
+        headers : Header.getHeader() 
+      }
     ).pipe(
       map(value =>{
         if(value.status==='success'){

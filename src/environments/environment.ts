@@ -4,6 +4,7 @@
 
 export const environment = {
   production: false,
+  apiKey : "=HBvRe*EI`X=r]@Z!vh*yZcO2)1xC",
   baseUrl : {
     base : 'http://localhost:3000',
     boquette : '/boquette',

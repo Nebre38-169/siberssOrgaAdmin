@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 import { Boquette } from 'src/app/class/boquette/boquette';
 import { environment } from 'src/environments/environment';
 import { BaseService } from '../base/base.service';
@@ -11,8 +12,11 @@ export class BoquetteService extends BaseService<Boquette> {
   
   baseUrl = environment.baseUrl.base+environment.baseUrl.boquette;
 
-  constructor(protected http : HttpClient) {
-    super(http);
+  constructor(
+    protected http : HttpClient,
+    protected router: Router
+  ) {
+    super(http,router);
    }
 
   public jsonToObjectConvert(info: any): Boquette {

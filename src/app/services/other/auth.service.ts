@@ -20,7 +20,10 @@ export class AuthService {
   constructor(
     private http : HttpClient,
     private boquette : BoquetteService
-  ) { }
+  ) { 
+    localStorage.removeItem('boquetteId');
+    localStorage.removeItem('access_token');
+  }
 
 
   public login(boquette : string, password : string) : Observable<Boquette | Error>{
@@ -31,6 +34,7 @@ export class AuthService {
     ).pipe(
       map(value =>{
         if(value.status==='success'){
+          console.log(value.result.token.length);
           this.loggedAdmin = this.boquette.jsonToObjectConvert(value.result.user);
           this.updateUser();
           localStorage.setItem('boquetteId',String(this.loggedAdmin.getId()));

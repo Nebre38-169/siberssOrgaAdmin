@@ -11,6 +11,7 @@ import { ChannelService } from 'src/app/services/channel/channel.service';
 export class ChannelListComponent implements OnInit,OnDestroy {
 
   public channelList : Channel[];
+  public loadingState = true;
 
   private channelSub : Subscription;
   constructor(
@@ -25,6 +26,7 @@ export class ChannelListComponent implements OnInit,OnDestroy {
     this.channelSub = this.channel.objectListObs
     .subscribe(value =>{
       this.channelList = value;
+      this.loadingState = false;
     });
     this.channel.fetch();
   }

@@ -10,6 +10,7 @@ import { BoquetteService } from 'src/app/services/boquette/boquette.service';
 })
 export class BoquetteListComponent implements OnInit {
   public boquetteList : Boquette[];
+  public loadingState = true;
 
   private boquetteSub : Subscription;
   constructor(private boquette : BoquetteService) { }
@@ -18,6 +19,7 @@ export class BoquetteListComponent implements OnInit {
     this.boquetteSub = this.boquette.objectListObs.subscribe(
       value =>{
         this.boquetteList = value;
+        this.loadingState = false;
       }
     )
     this.boquette.fetch();

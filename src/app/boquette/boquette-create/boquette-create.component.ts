@@ -13,6 +13,7 @@ import { AuthService } from 'src/app/services/other/auth.service';
 export class BoquetteCreateComponent implements OnInit {
 
   newBoquetteForm : FormGroup;
+  public errorMessage: string;
 
   constructor(private formBuilder : FormBuilder,
     private boquette : BoquetteService,
@@ -35,6 +36,7 @@ export class BoquetteCreateComponent implements OnInit {
   }
 
   onSubmitForm(){
+    this.errorMessage = "";
     const formValue = this.newBoquetteForm.value;
     var newBoquette = new Boquette(
       undefined,
@@ -50,6 +52,7 @@ export class BoquetteCreateComponent implements OnInit {
       console.log(value);
       if(value instanceof Error){
         console.log(value);
+        this.errorMessage = value.message;
       }else {
         
         newBoquette = value;

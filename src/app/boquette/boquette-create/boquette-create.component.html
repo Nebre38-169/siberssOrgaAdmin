@@ -38,6 +38,9 @@
                 <textarea class="form-control" id="description" formControlName="description" rows="4" cols="50">
                 </textarea>
             </div>
+            <div class="alert alert-danger" *ngIf="errorMessage && errorMessage.length>1">
+                {{ errorMessage }}
+            </div>
             <button class="btn btn-primary" type="submit">Créez une boquette</button>
             <a class="btn btn-secondary ms-1" routerLink="/boquette/list">Retour</a>
         </form>

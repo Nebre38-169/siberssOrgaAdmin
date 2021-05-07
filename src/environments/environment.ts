@@ -6,7 +6,7 @@ export const environment = {
   production: false,
   apiKey : "=HBvRe*EI`X=r]@Z!vh*yZcO2)1xC",
   baseUrl : {
-    base : 'http://localhost:3000',
+    base : 'http://192.168.0.238:4200',
     boquette : '/boquette',
     rotance : '/rotance',
     channel : '/channel',
